@@ -1,0 +1,27 @@
+{
+  "description": "Control your Music Player Daemon by clapping your hands",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "clap-detector" : ">=0.4.1",
+    "komponist" : ">=0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laiti/klapajaa.git"
+  },
+  "keywords": [
+    "mpd",
+    "audio",
+    "clap",
+    "remote"
+  ],
+  "author": "Antti Laiti <antti@laiti.fi>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laiti/klapajaa/issues"
+  },
+  "homepage": "https://github.com/laiti/klapajaa#readme"
+}

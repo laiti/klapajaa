@@ -1,0 +1,5 @@
+{
+    "host" : "localhost",
+    "port" : "6600",
+    "pass" : "foo"
+}
