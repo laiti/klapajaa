@@ -10,7 +10,7 @@ clapDetector.start(clapConfig);
 console.log('Notta Klapajaa started');
 
 clapDetector.onClaps(clapConfig.CLAPS, clapConfig.TIMEOUT, function(delay) {
-   komponist.createConnection(mpdConfig.port, mpdConfig.host, function(err, client) {
+   komponist.createConnection(mpdConfig.port, mpdConfig.server, function(err, client) {
        client.password(mpdConfig.pass);
        client.toggle();
        console.log("Pause toggled");
