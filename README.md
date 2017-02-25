@@ -1,4 +1,6 @@
 # klapajaa
+_”Vois päästää niin notta klapajaa mut ku ei oo lörpöä niin ei aski tohaja”_
+
 Control your Music Player Daemon with clapping your hands.
 
 This is rather simple integration with clap-detector and komponist node modules. First one detects the clap and later one sends command to your MPD instance.
