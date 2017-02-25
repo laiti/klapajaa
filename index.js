@@ -1,6 +1,5 @@
 var clapDetector = require('clap-detector');
 var komponist = require('komponist');
-var exec = require('child_process').exec;
 
 var mpdConfig = require('./mpd.json');
 var clapConfig = require('./clap.json');
