@@ -2,7 +2,7 @@ var clapDetector = require('clap-detector');
 var komponist = require('komponist');
 
 var mpdConfig = require('./config/mpd.json');
-var clapConfig = require('./config//clap.json');
+var clapConfig = require('./config/clap.json');
 
 // Start clap detection
 clapDetector.start(clapConfig);
