@@ -9,10 +9,11 @@ clapDetector.start(clapConfig);
 
 console.log('Notta Klapajaa started');
 
-clapDetector.onClaps(clapConfig.CLAPS, clapConfig.TIMEOUT, function(delay) {
-   komponist.createConnection(mpdConfig.port, mpdConfig.server, function(err, client) {
-       client.password(mpdConfig.pass);
-       client.toggle();
-       console.log("Pause toggled");
+var client = komponist.createConnection(mpdConfig.port, mpdConfig.server, function() {
+   client.password(mpdConfig.pass, function(err) {
+       clapDetector.onClaps(clapConfig.CLAPS, clapConfig.TIMEOUT, function(delay) {
+           client.toggle();
+           console.log('Pause toggled');
+       });
    });
 });
