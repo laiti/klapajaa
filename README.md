@@ -1,5 +1,5 @@
 # klapajaa
-_”Vois päästää niin notta klapajaa mut ku ei oo lörpöä niin ei aski tohaja”_
+_”Vois päästää notta klapajaa mut ku ei oo lörpöä niin ei aski tohaja”_
 
 Control your Music Player Daemon with clapping your hands.
 
