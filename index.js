@@ -13,8 +13,8 @@ console.log('')
 let client = komponist.createConnection(mpdConfig.port, mpdConfig.server, function() {
     client.password(mpdConfig.pass, function(err) {
        if(err) {
-           console.log('Connection failure: cannot connect to ' + mpdConfig.server + ':' + mpdConfig.port + '. Wrong credentials.')
-           return;
+           console.log('Connection failure: cannot login to ' + mpdConfig.server + ':' + mpdConfig.port + '. Wrong credentials, check config/mpd.json.')
+           process.exit()
        }
        clapDetector.onClaps(clapConfig.CLAPS, clapConfig.TIMEOUT, function(delay) {
            client.toggle();
