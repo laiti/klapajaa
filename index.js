@@ -8,7 +8,6 @@ let clapConfig = require('./config/clap.json');
 clapDetector.start(clapConfig);
 
 console.log('Notta Klapajaa started. Clap ' + clapConfig.CLAPS + ' times in ' + clapConfig.TIMEOUT + ' milliseconds to toggle pause.');
-console.log('')
 
 komponist.createConnection(mpdConfig.port, mpdConfig.server, function(err, client) {
 
@@ -27,6 +26,7 @@ komponist.createConnection(mpdConfig.port, mpdConfig.server, function(err, clien
             client.toggle();
 
             client.status(function(err, status) {
+                console.log('')
                 console.log(new Date().toISOString() + ': Pause toggled, current status:', status.state);
                 if(status.state === "play") {
                     client.currentsong(function(err, info) {
