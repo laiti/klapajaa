@@ -10,7 +10,7 @@ clapDetector.start(clapConfig);
 console.log('Notta Klapajaa started. Clap ' + clapConfig.CLAPS + ' times in ' + clapConfig.TIMEOUT + ' milliseconds to toggle pause.');
 console.log('')
 
-let client = komponist.createConnection(mpdConfig.port, mpdConfig.server, function(err) {
+komponist.createConnection(mpdConfig.port, mpdConfig.server, function(err, client) {
 
     if(err) {
         console.log('Connection failure: cannot connect to ' + mpdConfig.server + ':' + mpdConfig.port + '. Is mpd running, accessible and configured properly in config/mpd.json?')
