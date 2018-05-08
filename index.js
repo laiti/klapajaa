@@ -27,7 +27,7 @@ komponist.createConnection(mpdConfig.port, mpdConfig.server, function(err, clien
             client.toggle();
 
             client.status(function(err, status) {
-                console.log(new Date().toISOString() + ': pause toggled, status:', status.state);
+                console.log(new Date().toISOString() + ': Pause toggled, current status:', status.state);
                 if(status.state === "play") {
                     client.currentsong(function(err, info) {
                         console.log(new Date().toISOString() + ': Playing: ' + info.Artist + ' - ' + info.Title + '.')
