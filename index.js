@@ -11,7 +11,7 @@ console.log('Notta Klapajaa started. Clap ' + clapConfig.CLAPS + ' times in ' + 
 console.log('')
 
 let client = komponist.createConnection(mpdConfig.port, mpdConfig.server, function() {
-   client.password(mpdConfig.pass, function(err) {
+    client.password(mpdConfig.pass, function(err) {
        if(err) {
            console.log('Connection failure: cannot connect to ' + mpdConfig.server + ':' + mpdConfig.port + '. Wrong credentials.')
            return;
