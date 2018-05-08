@@ -11,6 +11,7 @@ console.log('Notta Klapajaa started. Clap ' + clapConfig.CLAPS + ' times in ' + 
 console.log('')
 
 let client = komponist.createConnection(mpdConfig.port, mpdConfig.server, function(err) {
+
     if(err) {
         console.log('Connection failure: cannot connect to ' + mpdConfig.server + ':' + mpdConfig.port + '. Is mpd running, accessible and configured properly in config/mpd.json?')
         process.exit()
@@ -21,11 +22,17 @@ let client = komponist.createConnection(mpdConfig.port, mpdConfig.server, functi
             console.log('Connection failure: cannot login to ' + mpdConfig.server + ':' + mpdConfig.port + '. Wrong credentials, check config/mpd.json.')
             process.exit()
         }
+
         clapDetector.onClaps(clapConfig.CLAPS, clapConfig.TIMEOUT, function(delay) {
             client.toggle();
 
             client.status(function(err, status) {
                 console.log(new Date().toISOString() + ': pause toggled, status:', status.state);
+                if(status.state === "play") {
+                    client.currentsong(function(err, info) {
+                        console.log(new Date().toISOString() + ': Playing: ' + info.Artist + ' - ' + info.Title + '.')
+                    });
+                }
             });
         });
     });
