@@ -6,7 +6,8 @@
   },
   "dependencies": {
     "clap-detector": "^0.5.0",
-    "komponist": ">=0.1.0"
+    "komponist": ">=0.1.0",
+    "lodash": "^4.17.11"
   },
   "repository": {
     "type": "git",
