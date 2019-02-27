@@ -1,8 +1,11 @@
-let clapDetector = require('clap-detector');
-let komponist = require('komponist');
+import ClapDetector from 'clap-detector';
 
-let mpdConfig = require('./config/mpd.json');
-let clapConfig = require('./config/clap.json');
+const komponist = require('komponist');
+
+const mpdConfig = require('./config/mpd.json');
+const clapConfig = require('./config/clap.json');
+
+const clap = new ClapDetector(clapConfig);
 
 // Start clap detection
 clapDetector.start(clapConfig);
@@ -22,7 +25,8 @@ komponist.createConnection(mpdConfig.port, mpdConfig.server, function(err, clien
             process.exit()
         }
 
-        clapDetector.onClaps(clapConfig.CLAPS, clapConfig.TIMEOUT, function(delay) {
+        const disposableClapsListener = clap.addClapsListener(claps => {
+          console.log("heard 2 claps", claps)
             client.toggle();
 
             client.status(function(err, status) {
@@ -34,6 +38,6 @@ komponist.createConnection(mpdConfig.port, mpdConfig.server, function(err, clien
                     });
                 }
             });
-        });
+        }, { number: clapConfig.CLAPS, delay: clapConfig.TIMEOUT });
     });
 });
