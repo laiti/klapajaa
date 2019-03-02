@@ -7,35 +7,47 @@ const clapConfig = require('./config/clap.json');
 const clap = new ClapDetector(clapConfig);
 
 
-console.log('Notta Klapajaa started. Clap ' + clapConfig.CLAPS + ' times in ' + clapConfig.TIMEOUT + ' milliseconds to toggle pause.');
+console.log(new Date().toISOString() + ': Notta Klapajaa started. Clap ' + clapConfig.CLAPS + ' times in ' + clapConfig.TIMEOUT + ' milliseconds to toggle pause.');
 
 // Start clap detection
 komponist.createConnection(mpdConfig.port, mpdConfig.server, function(err, client) {
+
     if(err) {
-        console.log('Connection failure: cannot connect to ' + mpdConfig.server + ':' + mpdConfig.port + '. Is mpd running, accessible and configured properly in config/mpd.json?')
+        console.log(new Date().toISOString() + ': Connection failure: cannot connect to ' + mpdConfig.server + ':' + mpdConfig.port + '. Is mpd running, accessible and configured properly in config/mpd.json?')
         process.exit()
     }
-    console.log('Connected to MPD instance ' + mpdConfig.server + ':' + mpdConfig.port);
+
 
     client.password(mpdConfig.pass, function(err) {
         if(err) {
-            console.log('Connection failure: cannot login to ' + mpdConfig.server + ':' + mpdConfig.port + '. Wrong credentials, check config/mpd.json.')
+            console.log(new Date().toISOString() + ': Connection failure: cannot login to ' + mpdConfig.server + ':' + mpdConfig.port + '. Wrong credentials, check config/mpd.json.')
             process.exit()
         }
-        console.log('Logged in.')
+        console.log(new Date().toISOString() + ': Logged in succesfully to MPD instance at ' + mpdConfig.server + ':' + mpdConfig.port);
+        printClientStatusToLog(client);
 
         const disposableTwoClapsListener = clap.addClapsListener(claps => {
             client.toggle();
 
-            client.status(function(err, status) {
-                console.log('')
-                console.log(new Date().toISOString() + ': Pause toggled, current status:', status.state);
-                if(status.state === "play") {
-                    client.currentsong(function(err, info) {
-                        console.log(new Date().toISOString() + ': Playing: ' + info.Artist + ' - ' + info.Title + '.')
-                    });
-                }
-            });
+            console.log('')
+            console.log(new Date().toISOString() + ': Claps detected, pause toggled.');
+            printClientStatusToLog(client);
+
         }, { number: clapConfig.CLAPS, delay: clapConfig.TIMEOUT });
     });
 });
+
+function printClientStatusToLog(client) {
+
+    client.status(function(err, status) {
+
+        if(status.state === "play") {
+            client.currentsong(function(err, info) {
+                console.log(new Date().toISOString() + ': Status: Playing: ' + info.Artist + ' - ' + info.Title + '.')
+            });
+        } else {
+            console.log(new Date().toISOString() + ': Status:', status.state);
+        }
+    });
+    return client.state;
+}
