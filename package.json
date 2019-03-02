@@ -1,4 +1,6 @@
 {
+  "name": "klapajaa",
+  "version": 1.0.0",
   "description": "Control your Music Player Daemon by clapping your hands",
   "main": "index.js",
   "scripts": {
