@@ -10,7 +10,7 @@ This is rather simple integration with clap-detector and komponist node modules.
 * Configure the clap.json and mpd.json and off you go.
 
 ### Running
-* nodejs index.js
+* node start.js
 
 ### clap.json
 

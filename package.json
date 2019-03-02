@@ -1,13 +1,14 @@
 {
   "name": "klapajaa",
-  "version": 1.0.0",
+  "version": "2.0.0",
   "description": "Control your Music Player Daemon by clapping your hands",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node start.js"
   },
   "dependencies": {
-    "clap-detector": "<0.5.0",
+    "clap-detector": "^0.5.1",
     "komponist": ">=0.1.0"
   },
   "repository": {
@@ -25,5 +26,9 @@
   "bugs": {
     "url": "https://github.com/laiti/klapajaa/issues"
   },
-  "homepage": "https://github.com/laiti/klapajaa#readme"
+  "homepage": "https://github.com/laiti/klapajaa#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
+  }
 }
