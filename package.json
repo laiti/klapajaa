@@ -3,7 +3,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node start.js"
   },
   "dependencies": {
     "clap-detector": "^0.5.1",
