@@ -6,10 +6,25 @@ const clapConfig = require('./config/clap.json');
 
 const clap = new ClapDetector(clapConfig);
 
-
 console.log(new Date().toISOString() + ': Notta Klapajaa started. Clap ' + clapConfig.CLAPS + ' times in ' + clapConfig.TIMEOUT + ' milliseconds to toggle pause.');
 
-// Start clap detection
+// Function for printing client status to console
+function printClientStatusToLog(client) {
+
+    client.status(function(err, status) {
+
+        if(status.state === "play") {
+            client.currentsong(function(err, info) {
+                console.log(new Date().toISOString() + ': Status: Playing: ' + info.Artist + ' - ' + info.Title + '.')
+            });
+        } else {
+            console.log(new Date().toISOString() + ': Status:', status.state);
+        }
+    });
+    return client.state;
+}
+
+// Main function
 komponist.createConnection(mpdConfig.port, mpdConfig.server, function(err, client) {
 
     if(err) {
@@ -36,18 +51,3 @@ komponist.createConnection(mpdConfig.port, mpdConfig.server, function(err, clien
         }, { number: clapConfig.CLAPS, delay: clapConfig.TIMEOUT });
     });
 });
-
-function printClientStatusToLog(client) {
-
-    client.status(function(err, status) {
-
-        if(status.state === "play") {
-            client.currentsong(function(err, info) {
-                console.log(new Date().toISOString() + ': Status: Playing: ' + info.Artist + ' - ' + info.Title + '.')
-            });
-        } else {
-            console.log(new Date().toISOString() + ': Status:', status.state);
-        }
-    });
-    return client.state;
-}
