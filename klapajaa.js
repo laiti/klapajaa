@@ -1,8 +1,10 @@
-let clapDetector = require('clap-detector');
-let komponist = require('komponist');
+const clapDetector = require('clap-detector');
+const komponist = require('komponist');
 
-let mpdConfig = require('./config/mpd.json');
-let clapConfig = require('./config/clap.json');
+const mpdConfig = require('./config/mpd.json');
+const clapConfig = require('./config/clap.json');
+
+const cd = new clapDetector();
 
 // Start clap detection
 clapDetector.start(clapConfig);
