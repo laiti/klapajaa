@@ -25,6 +25,7 @@ function printClientStatusToLog(client) {
 
 // Main function
 komponist.createConnection(mpdConfig.port, mpdConfig.server, (connectionErr, client) => {
+  // TODO: catch all possible connectivity errors
   if (connectionErr) {
     console.log(`${new Date().toISOString()}: Connection failure: cannot connect to ${mpdConfig.server}:${mpdConfig.port}. Is mpd running, accessible and configured properly in config/mpd.json?`);
     process.exit();
