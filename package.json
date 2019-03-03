@@ -8,6 +8,11 @@
     "eslint": "./node_modules/eslint/bin/eslint.js --ignore-path ./.eslintignore .",
     "start": "node start.js"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run eslint"
+    }
+  },
   "dependencies": {
     "clap-detector": "^0.5.1",
     "komponist": ">=0.1.0"
