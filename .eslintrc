@@ -1,0 +1,9 @@
+// To allow import
+parserOptions: {
+  'sourceType': 'module'
+}
+
+// We want to console.log()
+rules: {
+  'no-console': 'off'
+}
