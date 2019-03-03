@@ -14,10 +14,10 @@ function printClientStatusToLog(client) {
   client.status((statuserr, status) => {
     if (status.state === 'play') {
       client.currentsong((songerr, info) => {
-        console.log(`${new Date().toISOString()}: Status: Playing: ${info.Artist} - ${info.Title}`);
+        console.log(`status: Playing: ${info.Artist} - ${info.Title}`);
       });
     } else {
-      console.log(`${new Date().toISOString()}: Status: ${status.state}`);
+      console.log(`status: ${status.state}`);
     }
   });
   return client.state;
@@ -38,12 +38,15 @@ komponist.createConnection(mpdConfig.port, mpdConfig.server, (connectionErr, cli
     }
 
     console.log(`${new Date().toISOString()}: Logged in succesfully to MPD instance at ${mpdConfig.server}:${mpdConfig.port}`);
+
+    // No newline here, let printClientStatusToLog do that
+    process.stdout.write(`${new Date().toISOString()}: Startup successful. Current `);
     printClientStatusToLog(client);
 
     clap.addClapsListener(() => {
       client.toggle();
-      console.log('');
-      console.log(`${new Date().toISOString()}: Claps detected, pause toggled.`);
+      // No newline here, let printClientStatusToLog do that.
+      process.stdout.write(`${new Date().toISOString()}: Claps detected. New `);
       printClientStatusToLog(client);
     }, { number: clapConfig.CLAPS, delay: clapConfig.TIMEOUT });
   });
