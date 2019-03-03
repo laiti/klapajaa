@@ -14,10 +14,10 @@ function printClientStatusToLog(client) {
   client.status((statuserr, status) => {
     if (status.state === 'play') {
       client.currentsong((songerr, info) => {
-        console.log(`status: Playing: ${info.Artist} - ${info.Title}`);
+        console.log(`status: playing: ${info.Artist} - ${info.Title}`);
       });
     } else {
-      console.log(`status: ${status.state}`);
+      console.log(`status: ${status.state}d`);
     }
   });
   return client.state;
