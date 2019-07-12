@@ -8,8 +8,10 @@
     "start": "node start.js"
   },
   "dependencies": {
+    "ansi-regex": "^4.1.0",
     "clap-detector": "^0.5.1",
-    "komponist": ">=0.1.0"
+    "komponist": ">=0.1.0",
+    "lodash": "^4.17.14"
   },
   "repository": {
     "type": "git",
