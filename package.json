@@ -8,6 +8,7 @@
     "start": "node start.js"
   },
   "dependencies": {
+    "babel-core": "^6.26.3",
     "clap-detector": "^0.5.1",
     "komponist": ">=0.1.0",
     "lodash": "^4.17.14"
