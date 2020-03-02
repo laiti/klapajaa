@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "ansi-regex": "^4.1.0",
-    "clap-detector": "^0.5.1",
+    "clap-detector": "git://github.com/tom-s/clap-detector.git#5a89b254abad6f7309d56cdf4edf3808e80f1c74",
     "komponist": ">=0.1.0",
     "lodash": "^4.17.14"
   },
