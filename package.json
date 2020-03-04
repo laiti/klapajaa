@@ -11,10 +11,8 @@
     "dependencies": "Using my own forked git of clap-detector until a non-vulnerable version is available"
   },
   "dependencies": {
-    "ansi-regex": "^4.1.0",
     "clap-detector": "git://github.com/laiti/clap-detector.git",
-    "komponist": ">=0.1.0",
-    "lodash": "^4.17.14"
+    "komponist": ">=0.1.0"
   },
   "repository": {
     "type": "git",
