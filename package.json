@@ -1,18 +1,20 @@
 {
   "name": "klapajaa",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Control your Music Player Daemon by clapping your hands",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node start.js"
+    "start": "node start.js",
+    "lint": "./node_modules/eslint/bin/eslint.js ."
   },
   "comments": {
     "dependencies": "Using my own forked git of clap-detector until a non-vulnerable version is available"
   },
   "dependencies": {
     "clap-detector": "git://github.com/laiti/clap-detector.git",
-    "komponist": ">=0.1.0"
+    "komponist": ">=0.1.0",
+    "babel-register": "^6.26.0"
   },
   "repository": {
     "type": "git",
@@ -32,6 +34,8 @@
   "homepage": "https://github.com/laiti/klapajaa#readme",
   "devDependencies": {
     "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0"
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1"
   }
 }

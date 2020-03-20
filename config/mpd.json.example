@@ -1,5 +1,8 @@
 {
     "server" : "localhost",
     "port"   : "6600",
-    "pass"   : "foo"
+    "pass"   : "foo",
+    "_onkyo" : "Remove onkyoCmd if you wish not to control Onkyo amp",
+    "onkyoCmd"   : "/usr/local/bin/onkyo --host 172.18.55.21",
+    "onkyoInput" : "cd"
 }
