@@ -1,3 +1,4 @@
 node_modules
 test_data
 input.wav
+config/mpd.json.*
