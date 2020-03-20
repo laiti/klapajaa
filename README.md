@@ -8,6 +8,8 @@ This is rather simple integration with clap-detector and komponist node modules.
 ### Installation
 * npm install
 * Configure the clap.json and mpd.json and off you go.
+* For MacOS: `brew cask install sox`
+* If you wish to control Onkyo amplifier: `pip install onkyo-eiscp`
 
 ### Running
 * node start.js
