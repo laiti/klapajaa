@@ -76,7 +76,7 @@ komponist.createConnection(mpdConfig.port, mpdConfig.server, (createErr, client)
             // If power was off, we do not want to toggle playpause. We want the playback to start
             // but with a delay so that Onkyo is already powered up when we start.
             mpdToggle = false;
-            toggleWait = 3000;
+            toggleWait = 6000;
             exec(`${mpdConfig.onkyoCmd} system-power=on`);
           }
 
