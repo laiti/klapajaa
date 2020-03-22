@@ -14,7 +14,8 @@
   "dependencies": {
     "babel-register": "^6.26.0",
     "clap-detector": "git://github.com/laiti/clap-detector.git",
-    "komponist": ">=0.1.0"
+    "komponist": ">=0.1.0",
+    "moment": "^2.24.0"
   },
   "repository": {
     "type": "git",
