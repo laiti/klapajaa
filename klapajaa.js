@@ -85,11 +85,12 @@ komponist.createConnection(mpdConfig.port, mpdConfig.server, (createErr, client)
             if (currentInput && currentInput.includes(`: input-selector = ${mpdConfig.onkyoInput}`)) {
               console.log(`${new Date().toISOString()}: Onkyo input is already set to ${mpdConfig.onkyoInput}`);
             } else {
-              console.log(`${new Date().toISOString()}: Changing Onkyo input to ${mpdConfig.onkyoInput}`);
+              console.log(`${new Date().toISOString()}: Changing Onkyo input to ${mpdConfig.onkyoInput} and setting volume to ${mpdconfig.onkyoVolume}`);
               // If input was wrong, we do not want to toggle playpause but the playback to start
               // without delay.
               mpdToggle = false;
               exec(`${mpdConfig.onkyoCmd} input-selector=${mpdConfig.onkyoInput}`);
+              exec(`${mpdConfig.onkyoCmd} input-volume=${mpdConfig.onkyoVolume}`);
             }
 
             // Wait for Onkyo to power on if it was off
