@@ -8,12 +8,9 @@
     "start": "node start.js",
     "lint": "./node_modules/eslint/bin/eslint.js ."
   },
-  "comments": {
-    "dependencies": "Git of clap-detector until a non-vulnerable version of npm package is available"
-  },
   "dependencies": {
     "babel-register": "^6.26.0",
-    "clap-detector": "https://github.com/tom-s/clap-detector.git",
+    "clap-detector": "^0.5.3",
     "komponist": ">=0.1.0",
     "moment": "^2.24.0"
   },
