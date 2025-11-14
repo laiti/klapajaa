@@ -32,8 +32,8 @@
   "homepage": "https://github.com/laiti/klapajaa#readme",
   "devDependencies": {
     "babel-preset-env": "^1.7.0",
-    "eslint": "^7.2.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.1"
+    "eslint": "^9.39.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.32.0"
   }
 }
